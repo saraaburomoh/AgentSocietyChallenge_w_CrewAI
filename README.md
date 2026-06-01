@@ -62,15 +62,9 @@ Test the full wiring without using API tokens:
 uv run python run_simulator_test.py --mock
 ```
 
-**2. Sample Real Evaluation**
-Run the first 5 tasks of the 183-task subset:
+**2. Official Full Evaluation**
 ```bash
-uv run python run_real_test.py
-```
-
-**3. Official Full Evaluation**
-```bash
-uv run python evaluate_with_training_data.py
+uv run python run_test.py
 ```
 
 ---
