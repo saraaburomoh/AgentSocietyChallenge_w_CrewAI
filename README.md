@@ -7,8 +7,8 @@ This directory contains the finalized, production-stable CrewAI pipeline for the
 ## 📊 Final Performance Metrics (Lab 11 simulation run)
 
 
-| Metric | Score | Status |
-| :--- | :--- | :--- |
+| Metric | Score 
+| :--- | :--- 
 | **Preference Estimation** | **77.7%** 
 | **Review Generation** | **81.8%** 
 | **Overall Quality** | **79.7%** 
