@@ -4,15 +4,14 @@ This directory contains the finalized, production-stable CrewAI pipeline for the
 
 ---
 
-## 📊 Final Performance Metrics (2026-05-06)
+## 📊 Final Performance Metrics (Lab 11 simulation run)
 
-Evaluated against the official 183-task real-data subset:
 
 | Metric | Score | Status |
 | :--- | :--- | :--- |
-| **Preference Estimation** | **84.4%** | ✅ Excellent |
-| **Review Generation** | **76.1%** | ✅ Stable |
-| **Overall Quality** | **80.3%** | ✅ **Pass** |
+| **Preference Estimation** | **77.7%** 
+| **Review Generation** | **81.8%** 
+| **Overall Quality** | **79.7%** 
 
 ---
 
