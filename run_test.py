@@ -52,7 +52,7 @@ INSTRUCTOR_EMAIL = "yc.ho@gms.ndhu.edu.tw"
 # Google Drive sharing URL for the test set zip.
 # Paste the "Anyone with the link" share URL here.
 # Leave empty ("") to disable auto-download and use --test-set instead.
-GDRIVE_URL = "https://drive.google.com/file/d/110h8DGAm1IEoAGl6Oqqg7fZMN4HM0dUv/view?usp=sharing"
+GDRIVE_URL = "https://drive.google.com/file/d/1x6GHhPPqGdppR0kFc3c4qicN9zFH1bHM/view?usp=sharing"
 
 # ======================================================================
 # CLI
@@ -62,8 +62,8 @@ parser.add_argument("--test-set", default=None,
                     metavar="ZIP", help="Local path to test set zip (overrides Google Drive download)")
 parser.add_argument("--threads",  type=int, default=1,   metavar="N",
                     help="Worker threads (default: 1 = sequential)")
-parser.add_argument("--timeout",  type=int, default=300, metavar="SEC",
-                    help="Per-task timeout in seconds (default: 300)")
+parser.add_argument("--timeout",  type=int, default=600, metavar="SEC",
+                    help="Per-task timeout in seconds (default: 600)")
 parser.add_argument("--mock",     action="store_true",
                     help="Use mock LLM (no token cost) — for dry-run / testing only")
 args = parser.parse_args()
@@ -81,7 +81,7 @@ if args.mock:
         resp = litellm.ModelResponse()
         resp.choices = [litellm.Choices(
             message=litellm.Message(
-                content='{"stars": 4.0, "review": "[Mocked] Good place, friendly staff!"}',
+                content='Thought: I now can give a great answer\nFinal Answer: {"stars": 4.0, "review": "[Mocked] Good place, friendly staff!"}',
                 role="assistant",
             ),
             finish_reason="stop",
@@ -89,7 +89,11 @@ if args.mock:
         resp.model = "gpt-4"
         return resp
 
+    async def _fake_acompletion(*a, **kw):
+        return _fake_completion(*a, **kw)
+
     patch("litellm.completion", side_effect=_fake_completion).start()
+    patch("litellm.acompletion", side_effect=_fake_acompletion).start()
     os.environ["OPENAI_API_KEY"] = "sk-mock-key"
     print("⚙️  Mode: Mock LLM (dry-run)")
 else:
@@ -239,7 +243,7 @@ print("Step 4 — Running inference ...")
 print(f"  (threads={args.threads}, timeout={TIMEOUT_SEC or '∞'}s)")
 
 init_start = time.time()
-simulator = Simulator(data_dir="dummy_dataset", device="cpu", cache=True)
+simulator = Simulator(data_dir="data", device="cpu", cache=True)
 simulator.set_task_and_groundtruth(task_dir=task_dir, groundtruth_dir=gt_dir)
 simulator.set_agent(CrewAISimulationAgent)
 init_elapsed = time.time() - init_start

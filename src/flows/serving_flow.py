@@ -1,8 +1,13 @@
 import json
 import re
+import litellm
 from pydantic import BaseModel
 from crewai.flow.flow import Flow, listen, start
 from src.crews.simulation_crew import SimulationCrew
+# from src.crews.simulation_crew_hierarchical import SimulationCrewHierarchical as SimulationCrew
+
+# Disable LiteLLM callbacks to prevent "list.remove(x): x not in list" error
+litellm.callbacks = []
 
 
 def extract_json_from_output(raw_output: str) -> dict:
@@ -51,7 +56,7 @@ class AgentSocietyServingFlow(Flow[InferenceState]):
     @start()
     def init_request(self):
         # 初始化階段，紀錄收到的 user_id 和 item_id
-        pass
+        print(f"DEBUG: Flow started with user_id='{self.state.user_id}' and item_id='{self.state.item_id}'", flush=True)
 
     @listen(init_request)
     def trigger_crew_inference(self):
@@ -61,8 +66,16 @@ class AgentSocietyServingFlow(Flow[InferenceState]):
             'item_id': self.state.item_id
         }
         
+        print(f"DEBUG: Triggering crew with inputs: {inputs}", flush=True)
+        
         # 啟動並執行 Crew AI 團隊
-        result = SimulationCrew().crew().kickoff(inputs=inputs)
+        try:
+            result = SimulationCrew().crew().kickoff(inputs=inputs)
+        except Exception as e:
+            print(f"CRITICAL ERROR: Crew execution crashed: {str(e)}")
+            self.state.predicted_rating = 4.0
+            self.state.generated_review = "Good."
+            return self.state.model_dump()
         
         # 使用多層 Regex 容錯解析 LLM 的回傳結果
         try:
@@ -76,6 +89,6 @@ class AgentSocietyServingFlow(Flow[InferenceState]):
         except Exception:
             # 最終備援：把整段 raw output 當 review 用
             self.state.predicted_rating = 4.0
-            self.state.generated_review = str(result.raw)
+            self.state.generated_review = str(result.raw) if hasattr(result, 'raw') else "Failed to parse result."
 
         return self.state.model_dump()

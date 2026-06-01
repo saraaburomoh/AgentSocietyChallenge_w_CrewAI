@@ -148,7 +148,7 @@ else:
     try:
         proc = subprocess.run(
             [sys.executable, pipeline_script, "--mock", "--tasks", "1"],
-            capture_output=True, text=True, timeout=120, cwd=SCRIPT_DIR,
+            capture_output=True, text=True, encoding="utf-8", timeout=120, cwd=SCRIPT_DIR,
         )
         combined = proc.stdout + proc.stderr
 
@@ -260,7 +260,7 @@ if env_ok:
     try:
         proc = subprocess.run(
             [sys.executable, pipeline_script, "--tasks", "1", "--timeout", "300"],
-            capture_output=True, text=True, timeout=420, cwd=SCRIPT_DIR,
+            capture_output=True, text=True, encoding="utf-8", timeout=420, cwd=SCRIPT_DIR,
         )
         combined = proc.stdout + proc.stderr
 

@@ -14,10 +14,10 @@ logging.basicConfig(level=logging.INFO)
 #   - 官方寫法: simulator.set_llm(DeepseekLLM(api_key="..."))
 #   - CrewAI 寫法: 透過「環境變數」提供 API Key，CrewAI 會自動抓取
 #
-# 請取消下方其中一行的註解，填入您的真實 API Key：
-os.environ["OPENAI_API_KEY"] = "sk-your-openai-api-key"        # OpenAI
-# os.environ["DEEPSEEK_API_KEY"] = "your-deepseek-key"         # DeepSeek
-#
+# 使用 dotenv 從 .env 讀取真實的 API Key
+from dotenv import load_dotenv
+load_dotenv()
+
 # 💡 您也可以在 config/agents.yaml 裡為每個 Agent 指定不同模型，
 #    例如 llm: deepseek/deepseek-chat 或 llm: openai/gpt-4o
 
@@ -27,9 +27,9 @@ print("🚀 啟動 CrewAI 真實訓練集大規模評測")
 # [第二步] 指向真實的龐大 Dataset 與任務路徑
 # ======================================================================
 # 💡 注意: 建議保留 cache=True，否則 16GB+ 的資料表會瞬間吃滿您的本機記憶體！
-DATA_DIR = "path/to/your/dataset"        
-TASK_DIR = "path/to/task_directory"      
-GROUNDTRUTH_DIR = "path/to/groundtruth_directory" 
+DATA_DIR        = "data"               # Your 38-user local subset
+TASK_DIR        = "real_tasks_842"     # ✅ 842 verified tasks (user+item guaranteed in data/)
+GROUNDTRUTH_DIR = "real_groundtruth_842" # ✅ Matching ground truth
 
 simulator = Simulator(data_dir=DATA_DIR, device="auto", cache=True)
 simulator.set_task_and_groundtruth(task_dir=TASK_DIR, groundtruth_dir=GROUNDTRUTH_DIR)
@@ -48,9 +48,9 @@ simulator.set_agent(CrewAISimulationAgent)
 # 💡 注意: 同時併發多個 Flow 會以 N 倍的速度消耗您的 Token Rate Limit (TPM/RPM)，
 # 如果遇到 HTTP 429 Too Many Requests 報錯，請把 max_workers 降低。
 outputs = simulator.run_simulation(
-    number_of_tasks=None,       # None 代表跑完資料夾內所有任務
-    enable_threading=True,      # 開啟多執行緒並發 (CrewAI 原生完全支援 Threading!)
-    max_workers=10              # 併發 10 個 CrewAI Flow 實例
+    number_of_tasks=10,       # None 代表跑完資料夾內所有任務
+    enable_threading=False,      # 關閉多執行緒並發以避免 429 Rate Limit Error
+    max_workers=1              # 降為單執行緒
 )
 
 # ======================================================================

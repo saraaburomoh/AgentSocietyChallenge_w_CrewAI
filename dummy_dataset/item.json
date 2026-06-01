@@ -1,1 +1,1 @@
-/Users/jack.ho/WorkSpace/LLM_APP_2026/AgentSocietyChallenge/data/item_subset.json
+{"item_id": "QGYzYUMsQe6k7__LD91E5w", "name": "Dummy Restaurant", "address": "123 Main St", "city": "Dummy City", "state": "DC", "stars": 4.0, "review_count": 100, "is_open": 1, "attributes": {"WiFi": "free"}, "categories": "Restaurants, Food"}

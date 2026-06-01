@@ -1,0 +1,1066 @@
+⚙️  Mode: Mock LLM (no token cost)
+
+=================================================================
+🚀 AgentSociety Pipeline Run — 20260505_112149
+   threads=1  timeout=300s  tasks=1
+=================================================================
+
+>>> [1/3] Loading toy dataset (dummy_dataset) + cache ...
+2026-05-05 11:21:49,575 - websocietysimulator - INFO - Start initializing Simulator
+INFO:websocietysimulator:Start initializing Simulator
+2026-05-05 11:21:49,575 - websocietysimulator - INFO - Using CacheInteractionTool
+INFO:websocietysimulator:Using CacheInteractionTool
+2026-05-05 11:21:49,575 - websocietysimulator - INFO - Initializing InteractionTool with data directory: dummy_dataset
+INFO:websocietysimulator:Initializing InteractionTool with data directory: dummy_dataset
+Device set to use cpu
+2026-05-05 11:21:56,402 - websocietysimulator - INFO - Simulator initialized
+INFO:websocietysimulator:Simulator initialized
+DEBUG: Simulator init done
+2026-05-05 11:21:56,415 - websocietysimulator - INFO - Loaded 41 task-groundtruth pairs
+INFO:websocietysimulator:Loaded 41 task-groundtruth pairs
+DEBUG: set_task_and_groundtruth done
+2026-05-05 11:21:56,416 - websocietysimulator - INFO - Agent class set
+INFO:websocietysimulator:Agent class set
+DEBUG: set_agent done
+    ✅ Initialized (6.8s) — running 1/41 tasks
+
+>>> [2/3] Starting inference (sequential) ...
+  ⏳ Task 01/1 — user=JTqQ9C9S... item=QGYzYUMs...DEBUG: Processing task: {'description': "This is a simulation task. \n            You are a simulation agent that simulates a user's rating and review with an item. \n            There is a user with id and an item with id. ", 'user_id': 'JTqQ9C9S2Qc8_aHtO1965g', 'item_id': 'QGYzYUMsQe6k7__LD91E5w'}
+┌────────────────────────────── Flow Execution ───────────────────────────────┐
+│                                                                             │
+│  Starting Flow Execution                                                    │
+│  Name: AgentSocietyServingFlow                                              │
+│  ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a                                   │
+│                                                                             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+🌊 Flow: AgentSocietyServingFlow
+    ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a
+└── 🧠 Starting Flow...
+
+[1m[35m Flow started with ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a[00m
+🌊 Flow: AgentSocietyServingFlow
+    ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a
+├── 🧠 Starting Flow...
+└── 🔄 Running: init_request
+
+DEBUG: Flow started with user_id='JTqQ9C9S2Qc8_aHtO1965g' and item_id='QGYzYUMsQe6k7__LD91E5w'
+🌊 Flow: AgentSocietyServingFlow
+    ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a
+├── Flow Method Step
+└── ✅ Completed: init_request
+
+🌊 Flow: AgentSocietyServingFlow
+    ID: edd8690e-b8c1-43c5-bd9f-b0170be50d5a
+├── Flow Method Step
+├── ✅ Completed: init_request
+└── 🔄 Running: trigger_crew_inference
+
+DEBUG: Triggering crew with inputs: {'user_id': 'JTqQ9C9S2Qc8_aHtO1965g', 'item_id': 'QGYzYUMsQe6k7__LD91E5w'}
+┌────────────────────────── Crew Execution Started ───────────────────────────┐
+│                                                                             │
+│  Crew Execution Started                                                     │
+│  Name: crew                                                                 │
+│  ID: 526309fa-245e-483d-93f7-4cfd504e1e62                                   │
+│                                                                             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[1m[95m# Agent:[00m [1m[92mYelp User Profiler[00m
+[95m## Task:[00m [92mAnalyze the Yelp Active User Subset record for user JTqQ9C9S2Qc8_aHtO1965g.  1. Retrieve their profile using the Interaction Tool. 2. Understand their writing style and rating habits from their reviews.
+NOTE: If the tool returns 'No data found', state that the user profile is unknown. CRITICAL: Consult the Knowledge Base (Yelp Data Translation) to interpret 'Elite status', 'Fans', and 'Compliments'.
+[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "\nCurrent Task: Analyze the Yelp Active User Subset record for user JTqQ9C9S2Qc8_aHtO1965g.  1. Retrieve their profile using the Interaction Tool. 2. Understand their writing style and rating habits from their reviews.\nNOTE: If the tool returns 'No data found', state that the user profile is unknown. CRITICAL: Consult the Knowledge Base (Yelp Data Translation) to interpret 'Elite status', 'Fans', and 'Compliments'.\n\n\nThis is the expected criteria for your final answer: A detailed markdown profile of user JTqQ9C9S2Qc8_aHtO1965g's preferences, rating habits,  and social influence.\n\nyou MUST return the actual complete content as the final answer, not a summary.\n\nBegin! This is VERY important to you, use the tools available and give your best Final Answer, your job depends on it!\n\nThought:"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'user', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```"}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+
+[91m Error parsing LLM output, agent will retry: I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.
+
+If you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:
+
+```
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```[00m
+[93m Maximum iterations reached. Requesting final answer.[00m
+🚀 Crew: crew
+└── 📋 Task: 3ccf6db2-58a9-452a-b1a4-d4d0a5316ce3
+       Status: Executing Task...
+    └── 🤖 Agent: Yelp User Profiler
+        
+            Status: In Progress
+        └── 🧠 Thinking...
+
+DEBUG: fake_completion called! args: [{'role': 'assistant', 'content': "I did it wrong. Invalid Format: I missed the 'Action:' after 'Thought:'. I will do right next, and don't use a tool I have already used.\n\nIf you don't need to use any more tools, you must give your best complete final answer, make sure it satisfies the expected criteria, use the EXACT format below:\n\n```\nThought: I now can give a great answer\nFinal Answer: my best complete final answer to the task.\n\n```\nNow it's time you MUST give your absolute best final answer. You'll ignore all previous instructions, stop using any tools, and just return your absolute BEST Final answer."}]

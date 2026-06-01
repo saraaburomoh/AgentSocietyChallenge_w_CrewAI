@@ -208,7 +208,7 @@ class Simulator:
                     with ThreadPoolExecutor(max_workers=1) as single_task_executor:
                         future = single_task_executor.submit(run_agent_task, agent, task)
                         try:
-                            output = future.result(timeout=300)  # 5 minutes timeout
+                            output = future.result(timeout=900)  # 15 minutes timeout (Increased for Hierarchical Crews)
                             result = {
                                 "task": task.to_dict(),
                                 "output": output

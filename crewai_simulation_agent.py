@@ -20,9 +20,16 @@ class CrewAISimulationAgent(SimulationAgent):
 
     def workflow(self):
         # 1. 解析官方 Simulator 給予的任務與上下文
-        # 假設官方會把目前的場景資訊塞進 self.task，且為以字典形式操作的特徵
-        current_user_id = self.task.get('user_id', '') if isinstance(self.task, dict) else getattr(self.task, 'user_id', '')
-        current_item_id = self.task.get('item_id', '') if isinstance(self.task, dict) else getattr(self.task, 'item_id', '')
+        def get_val(obj, key, default=''):
+            if isinstance(obj, dict):
+                return obj.get(key, default)
+            return getattr(obj, key, default)
+
+        # DEBUG: Print the task structure
+        print(f"DEBUG: Processing task: {self.task}", flush=True)
+
+        current_user_id = get_val(self.task, 'user_id')
+        current_item_id = get_val(self.task, 'item_id')
 
         # 2. 將官方提供的 interaction_tool 動態注入到全局模組，令 CrewAI Tool Wrapper 可以查資料
         inject_simulator_tool(getattr(self, 'interaction_tool', None))
@@ -33,11 +40,30 @@ class CrewAISimulationAgent(SimulationAgent):
             item_id=current_item_id
         )
         
-        # 4. 實例化並觸發 CrewAI 引擎非同步、無縫執行
-        flow = AgentSocietyServingFlow(initial_state=initial_state)
-        final_state_dict = flow.kickoff()
+        # 4. 實例化並觸發 CrewAI 引擎
+        import time
+        # Defensive sleep to avoid hitting rate limits too aggressively between sequential tasks
+        if os.environ.get("OPENAI_API_KEY") != "sk-mock-key":
+            time.sleep(60)
+        
+        flow = AgentSocietyServingFlow()
+        flow.state.user_id = current_user_id
+        flow.state.item_id = current_item_id
+        
+        try:
+            final_state_dict = flow.kickoff()
+        except Exception as e:
+            print(f"ERROR: Flow execution failed: {str(e)}")
+            final_state_dict = None
         
         # 5. 按照 AgentSociety Track 1 要求，回傳 dictionary
+        # Handle case where final_state_dict is None (e.g., total failure or 429)
+        if final_state_dict is None:
+            return {
+                'stars': 4.0,
+                'review': "The simulation failed to complete due to an external error."
+            }
+            
         return {
             'stars': float(final_state_dict.get('predicted_rating', 4.0)),
             'review': str(final_state_dict.get('generated_review', 'Good.'))

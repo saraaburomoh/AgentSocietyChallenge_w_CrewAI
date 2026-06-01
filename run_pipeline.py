@@ -46,7 +46,7 @@ if args.mock:
         resp = litellm.ModelResponse()
         resp.choices = [litellm.Choices(
             message=litellm.Message(
-                content='{"stars": 4.0, "review": "[Mocked] Good place, friendly staff!"}',
+                content='Thought: I now can give a great answer\nFinal Answer: {"stars": 4.0, "review": "[Mocked] Good place, friendly staff!"}',
                 role="assistant",
             ),
             finish_reason="stop",
@@ -54,7 +54,11 @@ if args.mock:
         resp.model = "gpt-4"
         return resp
 
+    async def fake_acompletion(*a, **kw):
+        return fake_completion(*a, **kw)
+
     patch("litellm.completion", side_effect=fake_completion).start()
+    patch("litellm.acompletion", side_effect=fake_acompletion).start()
     os.environ["OPENAI_API_KEY"] = "sk-mock-key"
     print("⚙️  Mode: Mock LLM (no token cost)")
 else:
@@ -103,15 +107,18 @@ def run_single_task(idx, task, interaction_tool):
 
 try:
     # 1. Initialize Simulator
-    print("\n>>> [1/3] Loading toy dataset (dummy_dataset) + cache ...")
+    print("\n>>> [1/3] Loading toy dataset (dummy_dataset) + cache ...", flush=True)
     init_start = time.time()
     simulator = Simulator(data_dir="dummy_dataset", device="cpu", cache=True)
+    print("DEBUG: Simulator init done", flush=True)
     simulator.set_task_and_groundtruth(task_dir="dummy_tasks", groundtruth_dir="dummy_groundtruth")
+    print("DEBUG: set_task_and_groundtruth done", flush=True)
     simulator.set_agent(CrewAISimulationAgent)
+    print("DEBUG: set_agent done", flush=True)
     init_elapsed = time.time() - init_start
 
     tasks_to_run = simulator.tasks[:args.tasks] if args.tasks else simulator.tasks
-    print(f"    ✅ Initialized ({init_elapsed:.1f}s) — running {len(tasks_to_run)}/{len(simulator.tasks)} tasks")
+    print(f"    ✅ Initialized ({init_elapsed:.1f}s) — running {len(tasks_to_run)}/{len(simulator.tasks)} tasks", flush=True)
 
     # 2. Run Inference
     mode_label = f"threading (workers={args.threads})" if args.threads > 1 else "sequential"
